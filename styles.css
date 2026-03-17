@@ -107,6 +107,14 @@ textarea {
   box-shadow: 0 12px 28px rgba(200, 103, 60, 0.22);
 }
 
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -329,6 +337,14 @@ h3 {
   font-weight: 800;
 }
 
+.avatar-shell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+
 .identity-name {
   font-size: 1.2rem;
   font-weight: 800;
@@ -396,6 +412,14 @@ h3 {
   border: 1px dashed rgba(24, 21, 19, 0.18);
   color: var(--muted);
   font-weight: 800;
+}
+
+.portrait-image {
+  width: 100%;
+  min-height: 430px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
 }
 
 .articles-grid,
@@ -561,6 +585,25 @@ h3 {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .button:focus-visible,
 .nav-menu a:focus-visible,
 .nav-toggle:focus-visible,
@@ -657,6 +700,10 @@ h3 {
   }
 
   .portrait-placeholder {
+    min-height: 320px;
+  }
+
+  .portrait-image {
     min-height: 320px;
   }
 }
