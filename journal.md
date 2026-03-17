@@ -6,7 +6,7 @@ Hemen Babis
 
 ## Project
 
-Personal Portfolio Website
+Personal Portfoliio Website
 
 ## GitHub Repo
 
