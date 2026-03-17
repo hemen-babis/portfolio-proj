@@ -6,6 +6,20 @@ const sections = document.querySelectorAll("main section[id]");
 const revealItems = document.querySelectorAll(".reveal");
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+const setActiveLink = (id) => {
+  navLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+};
 
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
@@ -48,8 +62,9 @@ const sectionObserver = new IntersectionObserver(
       const id = entry.target.getAttribute("id");
       const activeLink = document.querySelector(`.nav-menu a[href="#${id}"]`);
 
-      navLinks.forEach((link) => link.classList.remove("active"));
-      activeLink?.classList.add("active");
+      if (activeLink) {
+        setActiveLink(id);
+      }
     });
   },
   {
@@ -76,7 +91,11 @@ const revealObserver = new IntersectionObserver(
   }
 );
 
-revealItems.forEach((item) => revealObserver.observe(item));
+if (prefersReducedMotion.matches) {
+  revealItems.forEach((item) => item.classList.add("visible"));
+} else {
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
 
 if (contactForm && formStatus) {
   contactForm.addEventListener("submit", (event) => {

@@ -62,7 +62,7 @@ GitHub Pages option:
 
 Deployed site URL:
 
-- Pending publication
+- https://hemen-babis.github.io/portfolio-proj/
 
 GitHub repository URL:
 
